@@ -1,6 +1,7 @@
 package main
 
 import (
+	"C"
 	"github.com/nats-io/nats.go"
 
 	"fmt"
@@ -16,7 +17,13 @@ func cb(msg *nats.Msg) {
 	fmt.Printf("Async subscription: %s\n", string(msg.Data))
 }
 
-func main() {
+//export test_export
+func test_export() {
+	fmt.Printf("Hello from GO!\n")
+}
+
+//export nats_example
+func nats_example() {
 	const subject string = "test_subject"
 	const error_format string = "err: %s\n"
 	const timeout time.Duration = time.Second * 3
@@ -90,4 +97,8 @@ func main() {
 	nc.Drain()
 	// Закрытие соединения с сервером
 	nc.Close()
+}
+
+func main() {
+	nats_example()
 }

@@ -1,2 +1,7 @@
 .vscode
+*.lib
 *.dll
+*.a
+*.so
+build
+go_nats/*.h
