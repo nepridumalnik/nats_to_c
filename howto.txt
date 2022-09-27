@@ -1,0 +1,5 @@
+Репозиторий с кодом и примерами
+https://github.com/nats-io/nats.go
+
+Запуск докера с nats сервером:
+docker run -p 4222:4222 -ti nats
